@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="alert.css">
+	<script src='jquery-1.9.0.min.js'></script>
+	<script src='alert.js'></script>
+</head>
+<body>
+	<button id="btn">click me</button>	
+</body>
+<script>
+	var M = {
+
+	}
+	$("#btn").click(function(){
+		M.dialog = jqueryAlert({
+		'title' : '温馨提示',
+		'content' : 'hello  程序员哥哥...',
+		'buttons' : {
+			'关闭' : function(){
+				M.dialog.close();
+			}
+		}
+		})
+	})
+</script>
+</html>
