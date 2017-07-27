@@ -37,9 +37,11 @@
 				<li><a href="#content">content	</a></li>
 				<li><a href="#contentTextAlign">contentTextAlign</a></li>
 				<li><a href="#width">width</a></li>	
+				<li><a href="#height">height</a></li>	
 				<li><a href="#minWidth">minWidth</a></li>	
 				<li><a href="#className">className</a></li>	
 				<li><a href="#position">position</a></li>	
+				<li><a href="#animateType">animateType</a></li>	
 				<li><a href="#modal">modal</a></li>	
 				<li><a href="#isModalClose">isModalClose</a></li>	
 				<li><a href="#bodyScroll">bodyScroll</a></li>	
@@ -64,11 +66,14 @@
 				<span class="f14 red" style="margin-left:20px">此为 PC 和 手机 都兼容的弹层组件</span>
 			</p>
 			<div class="m20 blockquote">
-				官方网址 ：<a class="blue" href="http://fy.035k.com/project/alert">http://fy.035k.com/project/alert</a>
-			</div>
-			<div class="m20 blockquote">
 				alert.js是基于jQuery开发的一款 <span class="red"> PC  移动端 </span> 都兼容的轻量级弹层组件
 			</div>
+	
+			<p class="f18 m20">评分</p>
+			<div class="m20 blockquote">
+			   	<p>如果觉得好用，就在github上 <a style='line-height: 25px;height:25px' class="alert-api-button" target="_blank" href='https://github.com/515184405/alert'>star</a><a target="_blank" style='line-height: 25px;height:25px;margin-left:5px;' class="alert-api-button" href="https://github.com/515184405/alert"> Fock</a> 或本站 <a class="alert-api-button" style='line-height: 25px;height:25px;' href="http://fy.035k.com/project/alert">留言</a> 哦</p>
+			</div>
+
 			<p class="f18 m20">浏览器兼容</p>
 			<div class="m20 blockquote" id="alert-blockquote">
 			     <p class="f16">浏览器兼容，下面是我们的主要兼容目标</p>
@@ -84,21 +89,21 @@
 			</div>
 			<p class="m20 blue brush-title">javascript 代码:</p>
 			<pre class="brush:javascript;toolbar:false">
-				'style'        : 'wap', //移动端和PC端
-				'title'        : '温馨提示',    //标题
-				'content'      : '暂无内容',	//内容
-				'contentTextAlign' : 'center', //内容对齐方式
-				'width'        : 'auto', //宽度
-				'height'       : 'auto'， //高度
-				'minWidth'     : '0', //最小宽度
-				"className"    : '', //添加类名
-				'animateType'  : 'scale', //动画类型
-				'position'     : 'absolute', //定位方式
-				'modal'        : true, //是否存在蒙层
-				'isModalClose' : false, //点击蒙层是否关闭
-				'bodyScroll'   : true, //是否关闭body的滚动条
-				'closeTime'    : '3000', //当没有按钮时关闭时间
-				"buttons"      : {}, //按钮对象</pre>
+						'style'        : 'wap', //移动端和PC端
+						'title'        : '',    //标题
+						'content'      : '',	//内容
+						'contentTextAlign' : 'center', //内容对齐方式
+						'width'        : 'auto', //宽度
+						'height'       : 'auto', //高度
+						'minWidth'     : '0', //最小宽度
+						"className"    : '', //添加类名
+						'position'     : 'fixed', //定位方式
+						'animateType'  : 'scale',
+						'modal'        : false, //是否存在蒙层
+						'isModalClose' : false, //点击蒙层是否关闭
+						'bodyScroll'   : false, //是否关闭body的滚动条
+						'closeTime'    : 3000, //当没有按钮时关闭时间
+						"buttons"      : {}, //按钮对象</pre>
 				<fieldset class="m20 fieldset">
 					<legend>实例演示</legend>
 					<button class="alert-api-button alert-btn1">提示</button>
@@ -353,6 +358,16 @@
 					'width' : "500",
 				})</pre>
 
+				<p id="height" class="alert-api-api "><span class="blue f18">height </span>- Number/String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：auto</p>
+					<p><span class="blue">释义</span>：设置高度</p>
+				</div>
+				<pre class="brush:javascript;toolbar:false">
+				var dialog = jqueryAlert({
+					'height' : "500",
+				})</pre>
+
 				<p id="minWidth" class="alert-api-api "><span class="blue f18">minWidth </span>- Number/String</p>
 				<div class="m20 blockquote">
 					<p><span class="blue">默认</span>：0</p>
@@ -384,6 +399,18 @@
 					'position' : "fixed",
 				})</pre>
 
+				<p id="animateType" class="alert-api-api "><span class="blue f18">animateType </span>- String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：scale</p>
+					<p><span class="blue">选项</span>：<span class="str_bg">scale</span><span class="str_bg">linear</span><span class="str_bg">为空或其他则为fadeIn动画</span></p>
+					<p><span class="blue">释义</span>：使用动画</p>
+					<p><span class="blue">Bug</span>：在IE8下动画效果失效</p>
+				</div>
+				<pre class="brush:javascript;toolbar:false">
+				var dialog = jqueryAlert({
+					'animateType' : "scale",
+				})</pre>
+
 				<p id="modal" class="alert-api-api "><span class="blue f18">modal </span>- Boolean</p>
 				<div class="m20 blockquote">
 					<p><span class="blue">默认</span>：false</p>
@@ -397,7 +424,7 @@
 				<p id="isModalClose" class="alert-api-api "><span class="blue f18">isModalClose </span>- Boolean</p>
 				<div class="m20 blockquote">
 					<p><span class="blue">默认</span>：false</p>
-					<p><span class="blue">释义</span>：点击蒙层的时候是否关闭</p>
+					<p><span class="blue">释义</span>：点击蒙层时是否关闭</p>
 				</div>
 				<pre class="brush:javascript;toolbar:false">
 				var dialog = jqueryAlert({
