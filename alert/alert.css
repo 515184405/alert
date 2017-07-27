@@ -24,6 +24,7 @@ body{
   background: #fff;
   border:1px solid #f1f1f1;
   z-index: 99999;
+  overflow: hidden;
 }
 .alert-title{
   font-size: 16px;
@@ -104,6 +105,7 @@ body{
 .alert-container-black{
   background-color:rgba(0,0,0,0.65);
   border:none;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000);
 }
 .alert-container-black .alert-content{
     color: #fff;  
@@ -180,7 +182,7 @@ body{
   animation-duration: .45s;
 }
 @keyframes bounceIn {
-  from, 20%, 40%, 60%, 80%, to {
+  0%, 20%, 40%, 60%, 80%, 100% {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
     -moz-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
     -o-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
@@ -196,21 +198,8 @@ body{
     transform: scale3d(.3, .3, .3);
   }
 
-  33.33% {
-    -webkit-transform: scale3d(1.15, 1.15, 1.15);
-    -moz-transform: scale3d(1.15, 1.15, 1.15);
-    -o-transform: scale3d(1.15, 1.15, 1.15);
-    transform: scale3d(1.15, 1.15, 1.15);
-  }
 
-  66.66% {
-    -webkit-transform: scale3d(.9, .9, .9);
-    -moz-transform: scale3d(.9, .9, .9);
-    -o-transform: scale3d(.9, .9, .9);
-    transform: scale3d(.9, .9, .9);
-  }
-
-  to {
+  100% {
     opacity: 1;
     filter: alpha(opacity=100);
     -webkit-transform: scale3d(1, 1, 1);
@@ -243,7 +232,7 @@ body{
     transform: scale3d(.75, .75, .75);
   }
 
-  to {
+  100% {
     opacity: 0;
      filter: alpha(opacity=0);
     -webkit-transform: scale3d(.3, .3, .3);

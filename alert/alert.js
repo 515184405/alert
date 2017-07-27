@@ -1,5 +1,4 @@
-
-window.jqueryAlert = function(opts){
+var jqueryAlert = function(opts){
 	// 设置默认参数
 	var opt = {
 		'style'        : 'wap', //移动端和PC端
@@ -46,8 +45,7 @@ window.jqueryAlert = function(opts){
 	var $buttonBox = $("<div class='alert-btn-box'>");
 	var $closeBtn = $("<div class='alert-btn-close'>×</div>");
 
-	console.log()
-	if(!!option.content[0] && option.content[0].nodeType == 1){
+	if(option.content[0].nodeType == 1){
 		var $newContent = option.content.clone();
 		$content.append($newContent)
 	}else{
@@ -103,6 +101,10 @@ window.jqueryAlert = function(opts){
 
 		$container.css('width',option.width);
 		$container.css('height',option.height);
+
+		if(option.width == 'auto'){
+			$container.css('width',$container[0].clientWidth + 10);
+		}
 
 		if(parseInt($(window).height()) <=  parseInt($container.css('height'))){
 			$container.css('height',$(window).height());
