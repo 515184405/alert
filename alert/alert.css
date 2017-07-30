@@ -13,7 +13,6 @@ body{
   background: #000;
   opacity: 0.6;
    filter: alpha(opacity=60);
-  z-index: 99998;
 }
 .alert-container{
   display: inline-block;

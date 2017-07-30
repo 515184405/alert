@@ -1,3 +1,4 @@
+var zIndex = 1000;
 var jqueryAlert = function(opts){
 	// 设置默认参数
 	var opt = {
@@ -83,12 +84,16 @@ var jqueryAlert = function(opts){
 		}
 
 		$modal.css('position',option.position);
+		$modal.css('z-index',zIndex);
+
+		++zIndex;
 
 		if(option.position == 'fixed'){
 			$container.css({
 				'position' : option.position,
 				'left'     : '50%',
 				'top'      : '50%',
+				'z-index'  : zIndex,
 			})
 		}
 		if(option.position == 'absolute'){
@@ -96,6 +101,7 @@ var jqueryAlert = function(opts){
 				'position' : option.position,
 				'left'     : $(window).width()/2,
 				'top'      : $(window).height()/2 + $(window).scrollTop(),
+				'z-index'  : zIndex,
 			})
 		}
 
@@ -198,6 +204,15 @@ var jqueryAlert = function(opts){
 		},dialog.time)
 	}
 	dialog.show = function(){
+
+		$modal.css('z-index',zIndex);
+
+		++zIndex;
+
+		$container.css({
+			'z-index'  : zIndex,
+		})
+		
 		if(option.animateType == 'scale'){
 			$container.fadeIn().removeClass('bounceOut').addClass('bounceIn');
 		}else if(option.animateType == 'linear'){
