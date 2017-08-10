@@ -66,6 +66,7 @@ body{
   line-height: 35px;
   cursor: pointer;
   color:#222;
+  box-sizing: border-box;
 }
 .alert-btn-p:hover{
   background: #eee;

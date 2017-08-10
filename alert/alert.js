@@ -125,7 +125,7 @@ var jqueryAlert = function(opts){
 			var $button = $("<p class='alert-btn-p'>"+ key +"</p>");
 			if(option.style != 'pc'){
 				$button.css({
-					'width' : Math.floor(($container[0].clientWidth - 3) / dialog.buttonsLength),
+					'width' : Math.floor(($container[0].clientWidth) / dialog.buttonsLength),
 				})
 			}
 			//绑定点击后的事件
