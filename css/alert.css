@@ -1,4 +1,4 @@
-*{
+﻿*{
   margin:0;
   padding:0;
 }
@@ -44,6 +44,7 @@ body{
   color:#555;
   height:100%;
   overflow: auto;
+  box-sizing:border-box;
 }
 .alert-content-scrollbar{
 
