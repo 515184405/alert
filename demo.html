@@ -20,7 +20,10 @@
 		<div class="alert-api-list">
 			<p class="f18 alert-api-title">演示demo</p>
 			<ul class="alert_list">
-				<li><a class="alert-api-hover" href="#tishi">提示</a></li>
+				<li><a class="alert-api-hover" href="#tishi1">默认提示</a></li>
+				<li><a href="#tishi2">正确提示</a></li>
+				<li><a href="#tishi3">错误提示</a></li>
+				<li><a href="#tishi4">警告提示</a></li>
 				<li><a href="#anniu1">按钮1</a></li>
 				<li><a href="#anniu2">按钮2</a></li>
 				<li><a href="#noAnimate">不使用动画</a></li>
@@ -34,6 +37,7 @@
 			<ul class="alert_list">
 				<li><a href="#style">style</a></li>
 				<li><a href="#title">title   </a></li>
+				<li><a href="#icon">icon   </a></li>
 				<li><a href="#content">content	</a></li>
 				<li><a href="#contentTextAlign">contentTextAlign</a></li>
 				<li><a href="#width">width</a></li>	
@@ -91,6 +95,7 @@
 			<pre class="brush:javascript;toolbar:false">
 						'style'        : 'wap', //移动端和PC端
 						'title'        : '',    //标题
+						'icon'         : '',  //示例 ：'img/right.png' url地址 只对没有按钮且没有title时起作用
 						'content'      : '',	//内容
 						'contentTextAlign' : 'center', //内容对齐方式
 						'width'        : 'auto', //宽度
@@ -105,8 +110,14 @@
 						'closeTime'    : 3000, //当没有按钮时关闭时间
 						"buttons"      : {}, //按钮对象</pre>
 				<fieldset class="m20 fieldset">
+					<legend>信息提示演示</legend>
+					<button class="alert-api-button alert-btn1">默认提示</button>
+					<button class="alert-api-button alert-btn11">正确提示</button>
+					<button class="alert-api-button alert-btn12">错误提示</button>
+					<button class="alert-api-button alert-btn13">警告提示</button>
+				</fieldset>
+				<fieldset class="m20 fieldset">
 					<legend>实例演示</legend>
-					<button class="alert-api-button alert-btn1">提示</button>
 					<button class="alert-api-button alert-btn2">按钮1</button>
 					<button class="alert-api-button alert-btn3">按钮2</button>
 					<button class="alert-api-button alert-btn4">不使用动画</button>
@@ -116,14 +127,51 @@
 					<button class="alert-api-button alert-btn8">iframe窗</button>
 					<button class="alert-api-button alert-btn9">pc弹层</button>
 				</fieldset>
-				<p id="tishi" class="m20 blue brush-title"><button class="alert-api-button alert-btn1">提示</button> 参数配置</p>
+				<p id="tishi1" class="m20 blue brush-title"><button class="alert-api-button alert-btn1">默认提示</button> 参数配置</p>
 				<pre class="brush:javascript;toolbar:false">
 				// 判断是否已存在，如果已存在则直接显示
 				if(M.dialog1){
 					return M.dialog1.show();
 				}
 				M.dialog1 = jqueryAlert({
-					'content' : 'hello 程序员...'
+					'content' : 'hello 程序员...',
+					'closeTime' : 2000,
+				})</pre>
+				
+				<p id="tishi2" class="m20 blue brush-title"><button class="alert-api-button alert-btn11">正确提示</button> 参数配置</p>
+				<pre class="brush:javascript;toolbar:false">
+				// 判断是否已存在，如果已存在则直接显示
+				if(M.dialog11){
+					return M.dialog11.show();
+				}
+				M.dialog11 = jqueryAlert({
+					'icon'    : 'img/right.png',
+					'content' : 'hello 程序员...',
+					'closeTime' : 2000,
+				})</pre>
+
+				<p id="tishi3" class="m20 blue brush-title"><button class="alert-api-button alert-btn12">错误提示</button> 参数配置</p>
+				<pre class="brush:javascript;toolbar:false">
+				// 判断是否已存在，如果已存在则直接显示
+				if(M.dialog12){
+					return M.dialog12.show();
+				}
+				M.dialog12 = jqueryAlert({
+					'icon'    : 'img/error.png',
+					'content' : 'hello 程序员...',
+					'closeTime' : 2000,
+				})</pre>
+
+				<p id="tishi4" class="m20 blue brush-title"><button class="alert-api-button alert-btn13">警告提示</button> 参数配置</p>
+				<pre class="brush:javascript;toolbar:false">
+				// 判断是否已存在，如果已存在则直接显示
+				if(M.dialog13){
+					return M.dialog13.show();
+				}
+				M.dialog13 = jqueryAlert({
+					'icon'    : 'img/warning.png',
+					'content' : 'hello 程序员...',
+					'closeTime' : 2000,
 				})</pre>
 
 				<p id="anniu1" class="m20 blue brush-title"><button class="alert-api-button alert-btn2">按钮1</button> 参数配置</p>
@@ -203,7 +251,7 @@
 					'content' : alertContent ,
 					'modal'   : true,
 					'contentTextAlign' : 'left',
-					'width'   : '450px',
+					'width'   : '400px',
 					'animateType' : 'linear',
 					'buttons' :{
 						'不同意' : function(){
@@ -253,8 +301,8 @@
 					'content' :  alertContent,
 					'modal'   : true,
 					'contentTextAlign' : 'left',
-					'width'   : '400',
-					'height'  : '300',
+					'width'   : '300',
+					'height'  : '200',
 					'animateType' : 'linear',
 					'buttons' :{
 						'关闭' : function(){
@@ -325,6 +373,17 @@
 				<pre class="brush:javascript;toolbar:false">
 				var dialog = jqueryAlert({
 					'title' :  '温馨提示',
+				})</pre>
+
+				<p id="icon" class="alert-api-api "><span class="blue f18">icon </span>- String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：''</p>
+					<p><span class="blue">释义</span>：在title与buttons都不存在的时候设置icon才生效</p>
+				</div>
+				<pre class="brush:javascript;toolbar:false">
+				var dialog = jqueryAlert({
+					'icon'    : 'img/right.png',
+					'content' :  '温馨提示',
 				})</pre>
 
 				<p id="content" class="alert-api-api "><span class="blue f18">content </span>- String/jQuery对象</p>

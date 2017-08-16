@@ -2,9 +2,9 @@ $(function(){
 	$('.alert-api-list').css('height',$(window).height());
    	$(window).scroll(function(){
 
-   		if($(window).scrollTop() >= 224){
+   		if($(window).scrollTop() >= 130){
    			$('.alert-api-list').css({
-   				'top' : $(window).scrollTop() - 224
+   				'top' : $(window).scrollTop() - 130
    			})
    		}else{
    			$('.alert-api-list').css({
@@ -24,14 +24,47 @@ $(function(){
 
 	}
 
-	// 按钮一
+	// 按钮一1
 	$(document).delegate(".alert-btn1",'click',function(){
 		if(M.dialog1){
 			return M.dialog1.show();
 		}
 		M.dialog1 = jqueryAlert({
 			'content' : 'hello 程序员...',
-			'closeTime' : 2000
+			'closeTime' : 2000,
+		})
+	})
+	// 按钮一2
+	$(document).delegate(".alert-btn11",'click',function(){
+		if(M.dialog11){
+			return M.dialog11.show();
+		}
+		M.dialog11 = jqueryAlert({
+			'icon'    : 'img/right.png',
+			'content' : 'hello 程序员...',
+			'closeTime' : 2000,
+		})
+	})
+	// 按钮一3
+	$(document).delegate(".alert-btn12",'click',function(){
+		if(M.dialog12){
+			return M.dialog12.show();
+		}
+		M.dialog12 = jqueryAlert({
+			'icon'    : 'img/error.png',
+			'content' : 'hello 程序员...',
+			'closeTime' : 2000,
+		})
+	})
+	// 按钮一4
+	$(document).delegate(".alert-btn13",'click',function(){
+		if(M.dialog13){
+			return M.dialog13.show();
+		}
+		M.dialog13 = jqueryAlert({
+			'icon'    : 'img/warning.png',
+			'content' : 'hello 程序员...',
+			'closeTime' : 2000,
 		})
 	})
 	// 按钮二
@@ -128,7 +161,7 @@ $(function(){
 			'content' : alertContent ,
 			'modal'   : true,
 			'contentTextAlign' : 'left',
-			'width'   : '450px',
+			'width'   : '400px',
 			'animateType' : 'linear',
 			'buttons' :{
 				'不同意' : function(){
@@ -178,8 +211,8 @@ $(function(){
 			'content' :  alertContent,
 			'modal'   : true,
 			'contentTextAlign' : 'left',
-			'width'   : '400',
-			'height'  : '300',
+			'width'   : '300',
+			'height'  : '200',
 			'animateType' : 'linear',
 			'buttons' :{
 				'关闭' : function(){

@@ -4,6 +4,7 @@ var jqueryAlert = function(opts){
 	var opt = {
 		'style'        : 'wap', //移动端和PC端
 		'title'        : '',    //标题
+		'icon'         : '',
 		'content'      : '',	//内容
 		'contentTextAlign' : 'center', //内容对齐方式
 		'width'        : 'auto', //宽度
@@ -145,6 +146,13 @@ var jqueryAlert = function(opts){
 
 		if(dialog.buttonsLength <= 0 && option.title == ''){
 			$container.addClass('alert-container-black');
+			if(!!option.icon){
+				$content.css({
+					'padding-top' : '45px',
+					'background'  : 'url('+option.icon+') no-repeat center 5px',
+					'background-size' : 'auto 40px'
+				})
+			}
 		}
 
 		 // 设置定位

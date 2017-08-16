@@ -23,6 +23,7 @@ body{
   background: #fff;
   border:1px solid #f1f1f1;
   z-index: 99999;
+  box-sizing: border-box;
   overflow: hidden;
 }
 .alert-title{
@@ -42,6 +43,7 @@ body{
   font-size: 14px;
   padding:15px 20px;
   color:#555;
+  box-sizing: border-box;
   height:100%;
   overflow: auto;
 }
