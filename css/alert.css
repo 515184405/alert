@@ -1,4 +1,4 @@
-*{
+﻿*{
   margin:0;
   padding:0;
 }
@@ -45,7 +45,11 @@ body{
   color:#555;
   height:100%;
   overflow: auto;
+<<<<<<< HEAD
   box-sizing: border-box;
+=======
+  box-sizing:border-box;
+>>>>>>> 03f227da4ed0b83128a7ff04b1a1ba6aec74071a
 }
 .alert-content-scrollbar{
 
