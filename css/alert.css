@@ -24,7 +24,11 @@ body{
   border:1px solid #f1f1f1;
   z-index: 99999;
   overflow: hidden;
-  box-sizing: border-box;
+   -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .alert-title{
   font-size: 16px;
@@ -45,7 +49,11 @@ body{
   color:#555;
   height:100%;
   overflow: auto;
-  box-sizing: border-box;
+   -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .alert-content-scrollbar{
 

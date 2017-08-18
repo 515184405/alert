@@ -47,7 +47,7 @@ var jqueryAlert = function(opts){
 	var $buttonBox = $("<div class='alert-btn-box'>");
 	var $closeBtn = $("<div class='alert-btn-close'>×</div>");
 
-	if(option.content[0].nodeType == 1){
+	if(!!option.content[0] && (1 == option.content[0].nodeType)){
 		var $newContent = option.content.clone();
 		$content.append($newContent)
 	}else{
