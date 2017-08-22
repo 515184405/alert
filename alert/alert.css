@@ -1,4 +1,4 @@
-*{
+﻿*{
   margin:0;
   padding:0;
 }
@@ -23,8 +23,12 @@ body{
   background: #fff;
   border:1px solid #f1f1f1;
   z-index: 99999;
-  box-sizing: border-box;
   overflow: hidden;
+   -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .alert-title{
   font-size: 16px;
@@ -43,9 +47,13 @@ body{
   font-size: 14px;
   padding:15px 20px;
   color:#555;
-  box-sizing: border-box;
   height:100%;
   overflow: auto;
+   -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .alert-content-scrollbar{
 

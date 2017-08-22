@@ -138,6 +138,12 @@ var jqueryAlert = function(opts){
 		if(dialog.buttonsLength > 0){
 			$container.append($buttonBox);
 			$content.css('padding-bottom','46px');
+			//处理IE下滚动条的问题
+			if (window.navigator.userAgent.indexOf("MSIE")>=1) {
+				if($content[0].scrollHeight > $content[0].clientHeight){
+					$content.css('height',parseInt($content.css('height')) - 46 );
+				}
+			}
 		}
 
 		if(option.title != ''){

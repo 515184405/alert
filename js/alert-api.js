@@ -41,7 +41,7 @@ $(function(){
 		}
 		M.dialog11 = jqueryAlert({
 			'icon'    : 'img/right.png',
-			'content' : 'hello 程序员...',
+			'content' : $(".alert-api-txt").html(),
 			'closeTime' : 2000,
 		})
 	})
