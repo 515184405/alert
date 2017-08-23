@@ -18,19 +18,19 @@ var jqueryAlert = function(opts){
 		'bodyScroll'   : false, //是否关闭body的滚动条
 		'closeTime'    : 3000, //当没有按钮时关闭时间
 		"buttons"      : {}, //按钮对象</pre>
-	}
+	};
 
 	// 参数合并
 	var option = $.extend({},opt,opts);
 
 	var dialog = {
 
-	}
+	};
 
 	dialog.time = 450;//动画关闭时间
 	dialog.init = function(){
 		dialog.framework();
-	}
+	};
 
 	// 事件处理
 	var isHaveTouch = "ontouchend" in document ? true : false;
@@ -38,9 +38,9 @@ var jqueryAlert = function(opts){
 		dialog.event = 'touchstart';
 	}else{
 		dialog.event = 'click';
-	}
+	};
 
-	var $modal = $("<div class='alert-modal'>")
+	var $modal = $("<div class='alert-modal'>");
 	var $container = $("<div class='alert-container animated'>");
 	var $title = $("<div class='alert-title'>"+option.title+"</div>");
 	var $content = $("<div class='alert-content'>");
@@ -52,14 +52,14 @@ var jqueryAlert = function(opts){
 		$content.append($newContent)
 	}else{
 		$content.html(option.content);
-	}
+	};
 
 	dialog.framework = function(){
 
 		dialog.buttons = [];
 		for(var key in option.buttons){
 			dialog.buttons.push(key);
-		}
+		};
 		dialog.buttonsLength = dialog.buttons.length;
 
 		$container.append($title)
@@ -67,22 +67,22 @@ var jqueryAlert = function(opts){
 
 		if(option.style == 'pc'){
 			$container.append($closeBtn).addClass('pcAlert');
-		}
+		};
 
 		if(option.modal || option.modal == 'true'){
-			$('body').append($modal)
+			$('body').append($modal);
 			option.bodyScroll && $('body').css('overflow','hidden');
-		}
-		$('body').append($container)
+		};
+		$('body').append($container);
 
 		// 设置内容的对齐方式
 		$content.css({
 			'text-align' : option.contentTextAlign
-		})
+		});
 
 		if(parseInt(option.minWidth) > parseInt($container.css('width'))){
 			option.width = option.minWidth;
-		}
+		};
 
 		$modal.css('position',option.position);
 		$modal.css('z-index',zIndex);
@@ -95,27 +95,27 @@ var jqueryAlert = function(opts){
 				'left'     : '50%',
 				'top'      : '50%',
 				'z-index'  : zIndex,
-			})
-		}
+			});
+		};
 		if(option.position == 'absolute'){
 			$container.css({
 				'position' : option.position,
 				'left'     : $(window).width()/2,
 				'top'      : $(window).height()/2 + $(window).scrollTop(),
 				'z-index'  : zIndex,
-			})
-		}
+			});
+		};
 
 		$container.css('width',option.width);
 		$container.css('height',option.height);
 
 		if(option.width == 'auto'){
 			$container.css('width',$container[0].clientWidth + 10);
-		}
+		};
 
 		if(parseInt($(window).height()) <=  parseInt($container.css('height'))){
 			$container.css('height',$(window).height());
-		}
+		};
 
 		// 设置class
 		(!!option.className) && $container.addClass(option.className);
@@ -128,12 +128,12 @@ var jqueryAlert = function(opts){
 				$button.css({
 					'width' : Math.floor(($container[0].clientWidth) / dialog.buttonsLength),
 				})
-			}
+			};
 			//绑定点击后的事件
 			$button.bind(dialog.event,option.buttons[key]);
 			$buttonBox.append($button);
 
-		}
+		};
 
 		if(dialog.buttonsLength > 0){
 			$container.append($buttonBox);
@@ -143,12 +143,12 @@ var jqueryAlert = function(opts){
 				if($content[0].scrollHeight > $content[0].clientHeight){
 					$content.css('height',parseInt($content.css('height')) - 46 );
 				}
-			}
-		}
+			};
+		};
 
 		if(option.title != ''){
 			$content.css('padding-top','42px');
-		}
+		};
 
 		if(dialog.buttonsLength <= 0 && option.title == ''){
 			$container.addClass('alert-container-black');
@@ -157,9 +157,9 @@ var jqueryAlert = function(opts){
 					'padding-top' : '45px',
 					'background'  : 'url('+option.icon+') no-repeat center 5px',
 					'background-size' : 'auto 40px'
-				})
-			}
-		}
+				});
+			};
+		};
 
 		 // 设置定位
 		$container.css({
@@ -169,11 +169,11 @@ var jqueryAlert = function(opts){
 
 		if(option.animateType == 'scale'){
 			$container.addClass('bounceIn');
-		}
+		};
 
 		if(option.animateType == 'linear'){
 			$container.addClass('linearTop');
-		}
+		};
 		
 		isSelfClose();
 
@@ -187,8 +187,8 @@ var jqueryAlert = function(opts){
 				$modal.fadeOut(300);
 				option.bodyScroll && $('body').css('overflow','auto');
 			},option.closeTime)
-		}
-	}
+		};
+	};
 
 	dialog.toggleAnimate = function(){
 		if(option.animateType == 'scale'){
@@ -197,8 +197,8 @@ var jqueryAlert = function(opts){
 			return $container.removeClass('linearTop').addClass('linearBottom');
 		}else{
 			return $container;
-		}
-	}
+		};
+	};
 
 	dialog.close = function(){
 		dialog.toggleAnimate().fadeOut(dialog.time);
@@ -216,7 +216,7 @@ var jqueryAlert = function(opts){
 			$modal.remove();
 			option.bodyScroll && $('body').css('overflow','auto');
 		},dialog.time)
-	}
+	};
 	dialog.show = function(){
 
 		$modal.css('z-index',zIndex);
@@ -225,7 +225,7 @@ var jqueryAlert = function(opts){
 
 		$container.css({
 			'z-index'  : zIndex,
-		})
+		});
 		
 		if(option.animateType == 'scale'){
 			$container.fadeIn().removeClass('bounceOut').addClass('bounceIn');
@@ -233,18 +233,18 @@ var jqueryAlert = function(opts){
 			$container.fadeIn().removeClass('linearBottom').addClass('linearTop');
 		}else{
 			$container.fadeIn()
-		}
+		};
 
 		if(option.position == 'absolute'){
 			$container.css({
 				'top'      : $(window).height()/2 + $(window).scrollTop(),
 			})
-		}
+		};
 
 		$modal.fadeIn();
 		option.bodyScroll && option.modal && $('body').css('overflow','hidden');
 		isSelfClose();
-	}
+	};
 
 	dialog.init();
 
