@@ -33,11 +33,25 @@ var jqueryAlert = function(opts){
 	};
 
 	// 事件处理
-	var isHaveTouch = "ontouchend" in document ? true : false;
+	function IsPC() {
+	    var userAgentInfo = navigator.userAgent;
+	    var Agents = ["Android", "iPhone",
+	                "SymbianOS", "Windows Phone",
+	                "iPad", "iPod"];
+	    var flag = true;
+	    for (var v = 0; v < Agents.length; v++) {
+	        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+	            flag = false;
+	            break;
+	        }
+	    }
+	    return flag;
+	}
+	var isHaveTouch = IsPC();
 	if(isHaveTouch){
-		dialog.event = 'touchstart';
-	}else{
 		dialog.event = 'click';
+	}else{
+		dialog.event = 'touchstart';
 	};
 
 	var $modal = $("<div class='alert-modal'>");
