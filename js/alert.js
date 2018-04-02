@@ -1,3 +1,13 @@
+/**
+
+	姓名：冯宇
+	site: http://fy.035k.com
+	更新时间 ：2018-04-02
+	更新内容 ：添加actionsheet
+	QQ : 515184405
+	github : https://github.com/515184405/alert 还有一些其他的项目哦，欢迎star
+
+**/
 
 ;(function(){
 	var zIndex = 1000;
@@ -19,6 +29,7 @@
 			'isModalClose' : false, //点击蒙层是否关闭
 			'bodyScroll'   : false, //是否关闭body的滚动条
 			'closeTime'    : 3000, //当没有按钮时关闭时间
+			'actionsheetCloseText' : '', //当当前样式为actionsheet时，关闭的文字按钮
 			"buttons"      : {}, //按钮对象</pre>
 		};
 
@@ -56,12 +67,13 @@
 			dialog.event = 'touchstart';
 		};
 
-		var $modal = $("<div class='alert-modal'>");
+		var $modal = $("<div class='alert-modal none'>");
 		var $container = $("<div class='alert-container animated'>");
 		var $title = $("<div class='alert-title'>"+option.title+"</div>");
 		var $content = $("<div class='alert-content'>");
 		var $buttonBox = $("<div class='alert-btn-box'>");
 		var $closeBtn = $("<div class='alert-btn-close'>×</div>");
+		var $actionsheetCloseBtn = $("<p class='alert-btn-p alert-btn-sheet'>"+ option.actionsheetCloseText +"</p>"); 
 
 		if(!!option.content[0] && (1 == option.content[0].nodeType)){
 			var $newContent = option.content.clone();
@@ -78,15 +90,20 @@
 			};
 			dialog.buttonsLength = dialog.buttons.length;
 
-			$container.append($title)
-					  .append($content);
+			option.style == 'actionsheet' ? $container.append($title) : $container.append($title) .append($content);
 
 			if(option.style == 'pc'){
 				$container.append($closeBtn).addClass('pcAlert');
 			};
 
+			if(option.style == 'actionsheet'){
+				$container.addClass('alert-actionsheet');
+			};
+
+
 			if(option.modal || option.modal == 'true'){
 				$('body').append($modal);
+				$modal.fadeIn(dialog.time);
 				option.bodyScroll && $('body').css('overflow','hidden');
 			};
 			$('body').append($container);
@@ -137,10 +154,11 @@
 			(!!option.className) && $container.addClass(option.className);
 
 		    // 设置button内容
+		    var indexs = 0;
 			for(var key in option.buttons){
-
-				var $button = $("<p class='alert-btn-p'>"+ key +"</p>");
-				if(option.style != 'pc'){
+				indexs++;
+				var $button = $("<p class='alert-btn-p alert-btn-p"+indexs+"'>"+ key +"</p>");
+				if(option.style == 'wap'){
 					$button.css({
 						'width' : Math.floor(($container[0].clientWidth) / dialog.buttonsLength),
 					})
@@ -169,11 +187,20 @@
 			if(dialog.buttonsLength <= 0 && option.title == ''){
 				$container.addClass('alert-container-black');
 				if(!!option.icon){
+					var img = new Image();
+					img.onload = function(){
+						$content.before(img);
+					}
+					img.src = option.icon
+					$(img).css({
+						'width':'45px',
+						'height' : 'auto',
+						'display':'block',
+						'margin' : '10px auto 0 auto'
+					})
 					$content.css({
-						'padding-top' : '45px',
-						'background'  : 'url('+option.icon+') no-repeat center 5px',
-						'background-size' : 'auto 40px'
-					});
+						'padding-top' : '5px'
+					})
 				};
 			};
 
@@ -183,37 +210,68 @@
 				'margin-top' : -parseInt($container.css('height'))/2,
 			});
 
-			if(option.animateType == 'scale'){
+			if( option.style == 'actionsheet' ){
+				$container.css({
+					'position' : 'fixed',
+					'left'     : 0,
+					'top'      : 'auto',
+					'bottom'   : '-100%',
+					'z-index'  : zIndex,
+					'margin'   : 0,
+					'width'    : '100%',
+					'height'   : 'auto',
+				});
+				$container.animate({
+					'bottom'   : '0',
+				},dialog.time);
+				
+			};
+
+			if(option.style != 'actionsheet' && option.animateType == 'scale'){
 				$container.addClass('bounceIn');
 			};
 
-			if(option.animateType == 'linear'){
+			if(option.style != 'actionsheet' && option.animateType == 'linear'){
 				$container.addClass('linearTop');
 			};
-			
+
+			if(option.actionsheetCloseText){
+				$buttonBox.append($actionsheetCloseBtn);
+				$(document).delegate('.alert-btn-sheet,.alert-modal','click',function(){
+					dialog.close();
+				})
+
+			}
+
 			isSelfClose();
 
 		};
 
 		// 判断是否满足自动关闭的条件
 		function isSelfClose(){
-			if(dialog.buttonsLength <= 0 && option.style != 'pc'){
+			if(dialog.buttonsLength <= 0 && option.style == 'wap'){
 				setTimeout(function(){
-					$container.fadeOut(300);
-					$modal.fadeOut(300);
+					$container.fadeOut(dialog.time);
+					$modal.fadeOut(dialog.time);
 					option.bodyScroll && $('body').css('overflow','auto');
 				},option.closeTime)
 			};
 		};
 
 		dialog.toggleAnimate = function(){
-			if(option.animateType == 'scale'){
-				return $container.removeClass('bounceIn').addClass('bounceOut');
-			}else if(option.animateType == 'linear'){
-				return $container.removeClass('linearTop').addClass('linearBottom');
+			if(option.style != 'actionsheet'){
+				if(option.animateType == 'scale'){
+					return $container.removeClass('bounceIn').addClass('bounceOut');
+				}else if(option.animateType == 'linear'){
+					return $container.removeClass('linearTop').addClass('linearBottom');
+				}else{
+					return $container;
+				};
 			}else{
-				return $container;
-			};
+				return $container.animate({
+					'bottom'   : '-100%',
+				},dialog.time);
+			}
 		};
 
 		dialog.close = function(){
@@ -242,28 +300,34 @@
 			$container.css({
 				'z-index'  : zIndex,
 			});
-			
-			if(option.animateType == 'scale'){
-				$container.fadeIn().removeClass('bounceOut').addClass('bounceIn');
-			}else if(option.animateType == 'linear'){
-				$container.fadeIn().removeClass('linearBottom').addClass('linearTop');
+			if( option.style != 'actionsheet' ){
+				if(option.animateType == 'scale'){
+					$container.fadeIn(dialog.time).removeClass('bounceOut').addClass('bounceIn');
+				}else if(option.animateType == 'linear'){
+					$container.fadeIn(dialog.time).removeClass('linearBottom').addClass('linearTop');
+				}else{
+					$container.fadeIn(dialog.time);
+				};
+
+				if(option.position == 'absolute'){
+					$container.css({
+						'top'      : $(window).height()/2 + $(window).scrollTop(),
+					})
+				};
 			}else{
-				$container.fadeIn()
-			};
+				$container.fadeIn(0).animate({
+					'bottom'   : '0',
+				},dialog.time);
+					
+			}
 
-			if(option.position == 'absolute'){
-				$container.css({
-					'top'      : $(window).height()/2 + $(window).scrollTop(),
-				})
-			};
-
-			$modal.fadeIn();
+			$modal.fadeIn(dialog.time);
 			option.bodyScroll && option.modal && $('body').css('overflow','hidden');
 			isSelfClose();
 		};
 
 		dialog.init();
-
+		console.log(dialog);
 		return dialog
 
 	}

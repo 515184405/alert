@@ -72,6 +72,7 @@ body{
   display: inline-block;
   text-align: center;
   border-right:1px solid #f1f1f1;
+  background-color: #fff;
   font-size:14px;
   line-height: 35px;
   cursor: pointer;
@@ -135,6 +136,36 @@ body{
   animation-name: linearBottom;
 }
 
+/*alert-actionsheet*/
+.alert-actionsheet{
+  border-radius: 0;
+  background-color: #ddd;
+}
+.alert-actionsheet .alert-content{
+  display: none;
+}
+.none{
+  display: none;
+}
+.alert-actionsheet .alert-title{
+  color: #aaa;
+  line-height: 50px;
+}
+.alert-actionsheet .alert-title,.alert-actionsheet .alert-btn-box{
+  position: static;
+}
+.alert-actionsheet .alert-btn-p{
+  font-size: 16px;
+  display: block;
+  line-height: 40px;
+  border-bottom: 1px solid #eee;
+}
+.alert-actionsheet .alert-btn-box{
+  background-color: transparent;
+}
+.alert-actionsheet .alert-btn-sheet{
+  margin-top:5px;
+}
 @keyframes linearBottom {
    0%{
       -webkit-transform: translate3d(0,0,0);
