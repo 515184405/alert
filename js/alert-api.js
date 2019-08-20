@@ -32,6 +32,9 @@ $(function(){
 		M.dialog1 = jqueryAlert({
 			'content' : 'hello 程序员...',
 			'closeTime' : 2000,
+			'end'       : function(){
+				console.log('已关闭弹框')
+			}
 		})
 	})
 	// 按钮一2
@@ -43,6 +46,9 @@ $(function(){
 			'icon'    : 'img/right.png',
 			'content' : $(".alert-api-txt").html(),
 			'closeTime' : 2000,
+			'end'       : function(){
+				console.log('已关闭弹框')
+			}
 		})
 	})
 	// 按钮一3
@@ -54,6 +60,9 @@ $(function(){
 			'icon'    : 'img/error.png',
 			'content' : 'hello 程序员...',
 			'closeTime' : 2000,
+			'end'       : function(){
+				console.log('已关闭弹框')
+			}
 		})
 	})
 	// 按钮一4
@@ -65,6 +74,9 @@ $(function(){
 			'icon'    : 'img/warning.png',
 			'content' : 'hello 程序员...',
 			'closeTime' : 2000,
+			'end'       : function(){
+				console.log('已关闭弹框')
+			}
 		})
 	})
 	// 按钮二
@@ -75,6 +87,9 @@ $(function(){
 		M.dialog2 = jqueryAlert({
 			'content' : 'hello 程 序 员 ...',
 			'modal'   : true,
+			'end'       : function(){
+				console.log('已关闭弹框')
+			},
 			'buttons' :{
 				'确定' : function(){
 					M.dialog2.close();
@@ -91,6 +106,9 @@ $(function(){
 			'title'   : 'alertjs提示',
 			'content' : '欢迎使用alertjs弹层 ...',
 			'modal'   : true,
+			'end'       : function(){
+				console.log('已关闭弹框')
+			},
 			'buttons' :{
 				'确定' : function(){
 					M.dialog3.close();
@@ -117,6 +135,9 @@ $(function(){
 			'content' : '欢迎使用alertjs弹层 ...',
 			'modal'   : true,
 			'animateType' : '',
+			'end'       : function(){
+				console.log('已关闭弹框')
+			},
 			'buttons' :{
 				'确定' : function(){
 					M.dialog4.close();
@@ -163,6 +184,9 @@ $(function(){
 			'contentTextAlign' : 'left',
 			'width'   : '400px',
 			'animateType' : 'linear',
+			'end'       : function(){
+				console.log('已关闭弹框')
+			},
 			'buttons' :{
 				'不同意' : function(){
 					M.dialog5.close();
@@ -192,6 +216,9 @@ $(function(){
 			'contentTextAlign' : 'left',
 			'width'   : 'auto',
 			'animateType' : 'linear',
+			'end'       : function(){
+				console.log('已关闭弹框')
+			},
 			'buttons' :{
 				'关闭' : function(){
 					M.dialog6.close();
@@ -214,6 +241,9 @@ $(function(){
 			'width'   : '300',
 			'height'  : '200',
 			'animateType' : 'linear',
+			'end'       : function(){
+				console.log('已关闭弹框')
+			},
 			'buttons' :{
 				'关闭' : function(){
 					M.dialog7.close();
@@ -236,6 +266,9 @@ $(function(){
 			'width'   : '90%',
 			'height'  : '90%',
 			'animateType': 'scale',
+			'end'       : function(){
+				console.log('已关闭弹框')
+			}
 		})
 	})
 
@@ -253,6 +286,9 @@ $(function(){
 			'contentTextAlign' : 'left',
 			'animateType': 'scale',
 			'bodyScroll' : 'true',
+			'end'       : function(){
+				console.log('已关闭弹框')
+			},
 			'buttons' : {
 				'关闭' : function(){
 					M.dialog9.close();
@@ -276,6 +312,9 @@ $(function(){
 			"className"    : '', //添加类名
 			'modal'   : true,
 			'actionsheetCloseText' : '取消',
+			'end'       : function(){
+				console.log('已关闭弹框')
+			},
 			'buttons' :{
 				'分享' : function(){
 					if(M.actionsheet11){

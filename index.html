@@ -50,6 +50,7 @@
 				<li><a href="#isModalClose">isModalClose</a></li>	
 				<li><a href="#bodyScroll">bodyScroll</a></li>	
 				<li><a href="#closeTime">closeTime</a></li>	
+				<li><a href="#end">end</a></li>	
 				<li><a href="#buttons">buttons	</li>
 			</ul>
 			<p class="f18 alert-api-title">返回对象</p>
@@ -136,7 +137,9 @@
 						'bodyScroll'   : false, //是否关闭body的滚动条
 						'closeTime'    : 3000, //当没有按钮时关闭时间
 						'actionsheetCloseText' : '', //当前样式为actionsheet时有效，关闭的文字按钮
-						"buttons"      : {}, //按钮对象</pre>
+						"buttons"      : {}, //按钮对象
+						"end"          : function(){}, //关闭弹框后的回调
+					</pre>
 				
 				<p id="tishi1" class="m20 blue brush-title"><button class="alert-api-button alert-btn1">默认提示</button> 参数配置</p>
 				<pre class="brush:javascript;toolbar:false">
@@ -600,6 +603,17 @@
 				            alert(11)
 				        }
 					}
+				})</pre>
+
+				<p id="end" class="alert-api-api "><span class="blue f18">end </span>- Callback</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：function(){}</p>
+				</div>
+				<pre class="brush:javascript;toolbar:false">
+				var dialog = jqueryAlert({
+					'end':function(){
+						console.log(1111);
+					},
 				})</pre>
 				<p class="f24 m30">返回对象</p>
 				<p id="dialog" class="alert-api-api "><span class="blue f18">dialog </span>- Object</p>

@@ -31,6 +31,7 @@
 			'closeTime'    : 3000, //当没有按钮时关闭时间
 			'actionsheetCloseText' : '', //当当前样式为actionsheet时，关闭的文字按钮
 			"buttons"      : {}, //按钮对象</pre>
+			"end"          : function(){}
 		};
 
 		// 参数合并
@@ -254,6 +255,7 @@
 					$container.fadeOut(dialog.time);
 					$modal.fadeOut(dialog.time);
 					option.bodyScroll && $('body').css('overflow','auto');
+					!!option.end && (typeof(option.end) == 'function' ? option.end() : console.warn('弹框关闭后的回调函数是个FUNCTION'));
 				},option.closeTime)
 			};
 		};
@@ -278,6 +280,8 @@
 			dialog.toggleAnimate().fadeOut(dialog.time);
 			$modal.fadeOut(dialog.time);
 			option.bodyScroll && $('body').css('overflow','auto');
+			!!option.end && (typeof(option.end) == 'function' ? option.end() : console.warn('弹框关闭后的回调函数是个FUNCTION'));
+			
 		};
 
 		option.style == 'pc' && $closeBtn.bind(dialog.event,dialog.close);

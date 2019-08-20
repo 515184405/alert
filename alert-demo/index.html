@@ -61,6 +61,9 @@ var M = {
 		M.dialog1 = jqueryAlert({
 			'content' : 'hello 程序员...',
 			'closeTime' : 2000,
+			'end':function(){
+				console.log('已关闭弹框')
+			}
 		})
 	})
 	// 按钮一2
@@ -72,6 +75,9 @@ var M = {
 			'icon'    : '../img/right.png',
 			'content' : 'hello 程序员...',
 			'closeTime' : 2000,
+			'end':function(){
+				console.log('已关闭弹框')
+			}
 		})
 	})
 	// 按钮一3
@@ -104,6 +110,9 @@ var M = {
 		M.dialog2 = jqueryAlert({
 			'content' : 'hello 程 序 员 ...',
 			'modal'   : true,
+			'end':function(){
+				console.log('已关闭弹框')
+			},
 			'buttons' :{
 				'确定' : function(){
 					M.dialog2.close();
@@ -120,6 +129,7 @@ var M = {
 			'title'   : 'alertjs提示',
 			'content' : '欢迎使用alertjs弹层 ...',
 			'modal'   : true,
+			'end': '',
 			'buttons' :{
 				'确定' : function(){
 					M.dialog3.close();
@@ -291,6 +301,9 @@ var M = {
 			"className"    : '', //添加类名
 			'modal'   : true,
 			'actionsheetCloseText' : '取消',
+			'end':function(){
+				console.log('已关闭弹框')
+			},
 			'buttons' :{
 				'分享' : function(){
 					if(M.actionsheet11){
