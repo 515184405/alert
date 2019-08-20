@@ -3,4 +3,4 @@
 
 主体内容在alert文件夹中
 
-文档访问地址 ： [http://fy.035k.com/project/alert](http://fy.035k.com/project/alert)
+文档访问地址 ： [http://www.yu313.cn/unit/item/35](http://www.yu313.cn/unit/item/35)
